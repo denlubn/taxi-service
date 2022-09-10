@@ -1,0 +1,4 @@
+.idea/
+taxi_service_db_data.json
+__pycache__/
+db.sqlite3
