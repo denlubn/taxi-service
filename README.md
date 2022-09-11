@@ -25,6 +25,15 @@ python manage.py runserver # starts Django Server
 * Managing cars drivers & manufacturers directly from website interface
 * Powerful admin panel for advanced managing
 
+## Test
+
+You can log in and test functionality
+
+```shell
+login: test_user
+password: 1$5h4tR1
+```
+
 ## Demo
 
 ![Website Interface](demo.jpg)
