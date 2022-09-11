@@ -6,6 +6,11 @@ Django project for managing cars and drivers
 
 [Taxi service deployed to Heroku](https://akkerman-taxi-service.herokuapp.com/)
 
+```shell
+login: test_user
+password: 1$5h4tR1
+```
+
 ## Installation
 
 Python3 must be already installed
@@ -24,15 +29,6 @@ python manage.py runserver # starts Django Server
 * Authentication functionality for Driver/User
 * Managing cars drivers & manufacturers directly from website interface
 * Powerful admin panel for advanced managing
-
-## Test
-
-You can log in and test functionality
-
-```shell
-login: test_user
-password: 1$5h4tR1
-```
 
 ## Demo
 
