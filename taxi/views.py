@@ -6,8 +6,14 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
-from .forms import DriverCreationForm, DriverLicenseUpdateForm, CarForm, CarSearchForm, ManufacturerSearchForm, \
+from .forms import (
+    DriverCreationForm,
+    DriverLicenseUpdateForm,
+    CarForm,
+    CarSearchForm,
+    ManufacturerSearchForm,
     DriverSearchForm
+)
 
 
 @login_required
@@ -81,26 +87,19 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     queryset = Car.objects.all().select_related("manufacturer")
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        print("kwargs", kwargs)
         context = super(CarListView, self).get_context_data(**kwargs)
-        print("context", context)
 
         model = self.request.GET.get("model", "")
-        print("self.request.GET", self.request.GET)
-        print("model", model)
 
         context["search_form"] = CarSearchForm(initial={
             "model": model
         })
-        print("context['search_form']", context["search_form"])
-        print("context", context)
         return context
 
     def get_queryset(self):
         form = CarSearchForm(self.request.GET)
 
         if form.is_valid():
-            print("form.cleaned_data", form.cleaned_data)
             return self.queryset.filter(
                 model__icontains=form.cleaned_data["model"]
             )

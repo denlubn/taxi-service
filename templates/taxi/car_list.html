@@ -11,7 +11,7 @@
 
   <form action="" method="get" class="form-inline">
     {{ search_form|crispy }}
-    <input type="submit" value="OK" class="btn btn-secondary">
+    <input type="submit" value="🔍" class="btn btn-secondary">
   </form>
 
   <br>
@@ -22,12 +22,14 @@
         <th>ID</th>
         <th>Model</th>
         <th>Manufacturer</th>
+        <th>Info</th>
       </tr>
     {% for car in car_list %}
       <tr>
-        <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+        <td>{{ car.id }}</td>
         <td>{{ car.model }}</td>
         <td>{{ car.manufacturer.name }}</td>
+        <th><a href="{% url 'taxi:car-detail' pk=car.id %}">Info</a></th>
       </tr>
     {% endfor %}
 
