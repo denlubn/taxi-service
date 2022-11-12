@@ -3,7 +3,18 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
-from taxi.models import Car, Driver
+from taxi.models import Car, Driver, Manufacturer
+
+
+class ManufacturerForm(forms.ModelForm):
+    logo = forms.ImageField(
+        label="",
+        required=False
+    )
+
+    class Meta:
+        model = Manufacturer
+        fields = "__all__"
 
 
 class ManufacturerSearchForm(forms.Form):
@@ -19,6 +30,11 @@ class CarForm(forms.ModelForm):
     drivers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
+    )
+
+    image = forms.ImageField(
+        label="Select image for car",
+        required=False,
     )
 
     class Meta:

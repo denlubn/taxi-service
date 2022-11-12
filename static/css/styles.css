@@ -6,3 +6,40 @@ body {
     float: right;
     margin: 0 2px 0 2px;
 }
+
+.car_image {
+    height: 320px;
+    width: 400px;
+    object-fit: contain;
+}
+
+.title-car-page {
+    padding: 112px 0;
+}
+
+.logo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+}
+
+.td-manufacturer {
+    height: 10em;
+    position: relative;
+}
+
+.table-element {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 7px;
+    margin: 0;
+    position: absolute;
+    margin-left: 7%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.table-element:hover {
+    text-decoration: none;
+}

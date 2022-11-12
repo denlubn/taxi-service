@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
+{% load static %}
 
 {% block content %}
   <h1>
@@ -20,6 +21,7 @@
     <table class="table">
       <tr>
         <th>ID</th>
+        <th>Logo</th>
         <th>Name</th>
         <th>Country</th>
         <th>Update</th>
@@ -28,30 +30,38 @@
 
       {% for manufacturer in manufacturer_list %}
         <tr>
-          <td>
-              {{ manufacturer.id }}
-          </td>
-          <td>
-              {{ manufacturer.name }}
-          </td>
-          <td>
-              {{ manufacturer.country }}
-          </td>
-          <td>
-              <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
-                Update
-              </a>
+            <td class="td-manufacturer">
+                <p class="table-element">{{ manufacturer.id }}</p>
             </td>
-            <td>
-              <a style="color: red"
-                href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
-                Delete
-              </a>
+            <td class="td-manufacturer">
+                {% if manufacturer.logo %}
+                    <img class="table-element logo" src="{{ manufacturer.logo.url }}"
+                         alt="Manufacturer logo">
+                {% else %}
+                    <img class="table-element logo" src="{% static "images/empty_logo.png" %}"
+                         alt="Empty logo">
+                {% endif %}
+            </td>
+            <td class="td-manufacturer">
+                <p class="table-element">{{ manufacturer.name }}</p>
+            </td>
+            <td class="td-manufacturer">
+                <p class="table-element">{{ manufacturer.country }}</p>
+            </td>
+            <td class="td-manufacturer">
+                <a class="table-element" href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
+                    Update
+                </a>
+            </td>
+            <td class="td-manufacturer">
+                <a class="table-element" style="color: red"
+                   href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
+                    Delete
+                </a>
             </td>
         </tr>
-      {% endfor %}
+    {% endfor %}
     </table>
-
   {% else %}
       <p>There are no manufacturers in the service.</p>
   {% endif %}
