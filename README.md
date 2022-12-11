@@ -4,7 +4,7 @@ Django project for managing cars and drivers
 
 ## Check it out!
 
-[Taxi service deployed to Heroku](https://akkerman-taxi-service.herokuapp.com/)
+[Taxi service deployed to Render](https://akkerman-taxi-service.onrender.com/)
 
 ```shell
 login: test_user
